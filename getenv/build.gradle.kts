@@ -1,5 +1,4 @@
 import com.vanniktech.maven.publish.SonatypeHost
-import java.util.*
 
 plugins {
     @Suppress("DSL_SCOPE_VIOLATION")
@@ -13,17 +12,27 @@ version = project.property("VERSION_NAME") as String
 
 object Targets {
     val iosTargets = arrayOf("iosArm64", "iosX64", "iosSimulatorArm64")
-    val tvosTargets = arrayOf("tvosArm64", "tvosX64", "tvosSimulatorArm64",)
-    val watchosTargets = arrayOf("watchosArm32", "watchosArm64", "watchosX64", "watchosSimulatorArm64",)
+    val tvosTargets = arrayOf("tvosArm64", "tvosX64", "tvosSimulatorArm64")
+    val watchosTargets = arrayOf(
+        "watchosArm32", "watchosArm64", "watchosX64", "watchosSimulatorArm64", "watchosDeviceArm64"
+    )
     val macosTargets = arrayOf("macosX64", "macosArm64")
     val darwinTargets = iosTargets + tvosTargets + watchosTargets + macosTargets
     val linuxTargets = arrayOf("linuxX64", "linuxArm64")
     val mingwTargets = arrayOf("mingwX64")
+    val androidTargets = arrayOf(
+        "androidNativeArm32", "androidNativeArm64", "androidNativeX86", "androidNativeX64",
+    )
     val nativeTargets = linuxTargets + darwinTargets + mingwTargets
 }
 
 kotlin {
     jvm()
+    js(IR) {
+        browser()
+        nodejs()
+    }
+    wasm()
     for (target in Targets.nativeTargets) {
         targets.add(presets.getByName(target).createTarget(target))
     }
