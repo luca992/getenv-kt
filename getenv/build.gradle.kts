@@ -1,8 +1,6 @@
 import com.vanniktech.maven.publish.SonatypeHost
 
 plugins {
-    @Suppress("DSL_SCOPE_VIOLATION")
-    val libs = libs
     alias(libs.plugins.org.jetbrains.kotlin.multiplatform)
     alias(libs.plugins.com.vanniktech.maven.publish)
 }
@@ -32,7 +30,12 @@ kotlin {
         browser()
         nodejs()
     }
-    wasm()
+    @Suppress("OPT_IN_USAGE")
+    wasm{
+        browser()
+        nodejs()
+        d8()
+    }
     for (target in Targets.nativeTargets) {
         targets.add(presets.getByName(target).createTarget(target))
     }
