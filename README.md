@@ -3,6 +3,6 @@ A simple kotlin multiplatform getenv implementation for JVM, and Native, JS. (Wa
 
 ```kotlin
 dependencies {
-    implementation("io.github.luca992.getenv-kt:getenv:0.2.0")
+    implementation("io.github.luca992.getenv-kt:getenv:0.3.0")
 }
 ```
