@@ -1,5 +1,5 @@
 # getenv-kt
-A simple kotlin multiplatform getenv implementation for JVM, and Native. (JS/Wasm TODO)
+A simple kotlin multiplatform getenv implementation for JVM, and Native, JS. (Wasm TODO)
 
 ```kotlin
 dependencies {

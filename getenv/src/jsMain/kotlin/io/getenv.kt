@@ -1,5 +1,5 @@
 package io
 
 actual fun getenv(name: String): String? {
-    TODO("Not yet implemented")
+    return process.env[name] as String?
 }
