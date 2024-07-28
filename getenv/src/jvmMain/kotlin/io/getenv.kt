@@ -1,4 +1,4 @@
 package io
 
-actual fun getenv(name: String): String? = System.getenv(name)
+public actual fun getenv(name: String): String? = System.getenv(name)
 

@@ -7,6 +7,6 @@ com-vanniktech-maven-publish = { id = "com.vanniktech.maven.publish", version.re
 
 [versions]
 
-kotlin = "1.9.21"
+kotlin = "2.0.0"
 
-vanniktech-publish = "0.25.3"
+vanniktech-publish = "0.29.0"

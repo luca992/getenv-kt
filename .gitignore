@@ -208,3 +208,6 @@ lint/tmp/
 
 # IntelliJ Code Styles
 !/.idea/codeStyles/
+
+.kotlin
+/versions.properties

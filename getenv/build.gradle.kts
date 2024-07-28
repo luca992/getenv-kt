@@ -11,15 +11,14 @@ version = project.property("VERSION_NAME") as String
 kotlin {
     jvm()
     js(IR) {
-        browser()
         nodejs()
     }
     @Suppress("OPT_IN_USAGE")
     wasmJs{
-        browser()
         nodejs()
-        d8()
     }
+    @Suppress("OPT_IN_USAGE")
+    wasmWasi()
     iosArm64()
     iosX64()
     iosSimulatorArm64()
@@ -40,6 +39,13 @@ kotlin {
     androidNativeX86()
     androidNativeX64()
     applyDefaultHierarchyTemplate()
+    explicitApi()
+
+    sourceSets {
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+        }
+    }
 }
 
 plugins.withId("com.vanniktech.maven.publish") {
