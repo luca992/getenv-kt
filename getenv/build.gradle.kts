@@ -18,7 +18,9 @@ kotlin {
         nodejs()
     }
     @Suppress("OPT_IN_USAGE")
-    wasmWasi()
+    wasmWasi{
+        nodejs()
+    }
     iosArm64()
     iosX64()
     iosSimulatorArm64()
